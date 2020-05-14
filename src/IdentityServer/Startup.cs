@@ -2,8 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -12,6 +14,8 @@ namespace IdentityServer
     public class Startup
     {
         public IWebHostEnvironment Environment { get; }
+
+        public IConfigurationRoot Configuration { get; }
 
         public Startup(IWebHostEnvironment environment)
         {
@@ -29,11 +33,14 @@ namespace IdentityServer
             //    .AddInMemoryApiResources(Config.Apis)
             //    .AddInMemoryClients(Config.Clients);
 
-            
+
 
             // not recommended for production - you need to store your key material somewhere secure
             //var builder = services.AddIdentityServer();
             //builder.AddDeveloperSigningCredential();
+
+            // Dependency Injection - Register the IConfigurationRoot instance mapping to our "ConfigurationOptions" class 
+            services.Configure<ConfigurationOptions>(Configuration);
         }
 
         public void Configure(IApplicationBuilder app)
