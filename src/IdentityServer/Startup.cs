@@ -27,6 +27,9 @@ namespace IdentityServer
             // uncomment, if you want to add an MVC-based UI
             services.AddControllersWithViews();
 
+            // Dependency Injection - Register the IConfigurationRoot instance mapping to our "ConfigurationOptions" class 
+            services.Configure<ConfigurationOptions>(Configuration);
+
             // ---  configure identity server with in-memory stores, keys, clients and scopes ---
             //var builder = services.AddIdentityServer()
             //    .AddInMemoryIdentityResources(Config.Ids)
@@ -39,8 +42,7 @@ namespace IdentityServer
             //var builder = services.AddIdentityServer();
             //builder.AddDeveloperSigningCredential();
 
-            // Dependency Injection - Register the IConfigurationRoot instance mapping to our "ConfigurationOptions" class 
-            services.Configure<ConfigurationOptions>(Configuration);
+
         }
 
         public void Configure(IApplicationBuilder app)
