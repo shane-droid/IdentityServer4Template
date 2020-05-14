@@ -23,11 +23,13 @@ namespace IdentityServer
             // uncomment, if you want to add an MVC-based UI
             services.AddControllersWithViews();
 
+            // ---  configure identity server with in-memory stores, keys, clients and scopes ---
+            //var builder = services.AddIdentityServer()
+            //    .AddInMemoryIdentityResources(Config.Ids)
+            //    .AddInMemoryApiResources(Config.Apis)
+            //    .AddInMemoryClients(Config.Clients);
 
-            var builder = services.AddIdentityServer()
-                .AddInMemoryIdentityResources(Config.Ids)
-                .AddInMemoryApiResources(Config.Apis)
-                .AddInMemoryClients(Config.Clients);
+
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
