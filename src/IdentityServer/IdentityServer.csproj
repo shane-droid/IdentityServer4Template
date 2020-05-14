@@ -12,6 +12,5 @@
   
   <ItemGroup>
     <Folder Include="Data\Store\" />
-    <Folder Include="Data\Repository\" />
   </ItemGroup>
 </Project>
