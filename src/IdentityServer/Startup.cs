@@ -29,7 +29,7 @@ namespace IdentityServer
             //    .AddInMemoryApiResources(Config.Apis)
             //    .AddInMemoryClients(Config.Clients);
 
-
+            
 
             // not recommended for production - you need to store your key material somewhere secure
             //var builder = services.AddIdentityServer();
